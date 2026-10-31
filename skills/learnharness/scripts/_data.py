@@ -30,18 +30,18 @@ def data_root(override: str | None = None) -> Path:
     if override is not None:
         root = Path(override).expanduser()
     elif sys.platform == "darwin":
-        root = Path.home() / "Library" / "Application Support" / "MasteryHarness" / "data"
+        root = Path.home() / "Library" / "Application Support" / "LearnHarness" / "data"
     elif sys.platform == "win32":
         roaming = os.environ.get("APPDATA")
         if not roaming:
             raise DataError("APPDATA is not set; specify the learning data folder with --data-dir.")
-        root = Path(roaming) / "MasteryHarness" / "data"
+        root = Path(roaming) / "LearnHarness" / "data"
     elif sys.platform.startswith("linux"):
         configured = os.environ.get("XDG_CONFIG_HOME")
         base = Path(configured) if configured else Path.home() / ".config"
         if configured and not base.is_absolute():
             raise DataError("XDG_CONFIG_HOME is relative; specify an absolute --data-dir instead.")
-        root = base / "MasteryHarness" / "data"
+        root = base / "LearnHarness" / "data"
     else:
         raise DataError("Unknown desktop data location on this OS; specify --data-dir.")
     try:

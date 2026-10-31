@@ -1,4 +1,4 @@
-# MasteryHarness
+# Learn Harness
 
 **An agent harness for learning. A fork of [LearnHarness](https://github.com/amosblomqvist/learnharness).**
 
@@ -8,15 +8,15 @@
   <a href="#how-it-works">How it works</a> ·
   <a href="#install">Install</a> ·
   <a href="docs/development.md">Documentation</a> ·
-  <a href="https://github.com/wangdepin/MasteryHarness/issues">Issues</a> ·
+  <a href="https://github.com/1unarzDev/learn_harness/issues">Issues</a> ·
   <a href="https://discord.gg/5tCHHQEB2e">Discord</a>
 </p>
 
-> MasteryHarness is a fork of LearnHarness by Amos Blomqvist and tracks its main branch. It is not affiliated with or endorsed by the upstream project. The teaching engine, knowledge graph, and most of the app are upstream's work; the changes listed below are this fork's.
+> This repository is a fork of LearnHarness by Amos Blomqvist and tracks its main branch. It is not affiliated with or endorsed by the upstream project. The teaching engine, knowledge graph, and most of the app are upstream's work; the changes listed below are this fork's.
 
-MasteryHarness uses AI agents to plan and teach lessons from your current understanding to your goal. It builds a detailed picture of what you understand and how you reason, and updates it as you learn. Teaching builds understanding one reasoning step at a time, practice makes it usable, and a persistent knowledge graph carries it across sessions.
+LearnHarness uses AI agents to plan and teach lessons from your current understanding to your goal. It builds a detailed picture of what you understand and how you reason, and updates it as you learn. Teaching builds understanding one reasoning step at a time, practice makes it usable, and a persistent knowledge graph carries it across sessions.
 
-**Bring your own model access, two ways.** Paste an API key for any of many providers (OpenAI, Anthropic, Google Gemini, DeepSeek, OpenRouter, and more), or skip the key and **sign in with an existing ChatGPT, Claude, GitHub Copilot, Grok, or Google (Gemini) subscription**. Nothing goes through a MasteryHarness server; the app talks to your provider directly.
+**Bring your own model access, two ways.** Paste an API key for any of many providers (OpenAI, Anthropic, Google Gemini, DeepSeek, OpenRouter, and more), or skip the key and **sign in with an existing ChatGPT, Claude, GitHub Copilot, Grok, or Google (Gemini) subscription**. Nothing goes through a LearnHarness server; the app talks to your provider directly.
 
 ![Teaching session](docs/assets/teaching-session.png)
 
@@ -33,9 +33,9 @@ MasteryHarness uses AI agents to plan and teach lessons from your current unders
 - **Copy formulas as TeX.** Copy any rendered KaTeX formula back out as TeX source.
 - **Answer fields.** Cmd+Enter submits; Enter inserts a newline.
 - **Packaging and fixes.** The packaged server ships pi-ai's OAuth flow modules, the researcher gets a wrap-up turn when it spends every turn on tools, and literal `\n` in questions and one-line code fences renders correctly.
-- **A new app icon.** The M graph mark, redrawn as vector for the macOS Liquid Glass icon, the Windows and Linux icons, and the sidebar.
+- **LearnHarness branding.** The original LearnHarness spiral mark is used in the sidebar and desktop icons.
 
-Everything else behaves as in upstream. See the [commit history](https://github.com/wangdepin/MasteryHarness/commits/main) for the exact changes.
+Everything else behaves as in upstream. See the [commit history](https://github.com/1unarzDev/learn_harness/commits/main) for the exact changes.
 
 ## Review
 
@@ -68,21 +68,21 @@ The screenshots are from upstream's interface.
 
 ## Install
 
-**Prebuilt installers:** see [Releases](https://github.com/wangdepin/MasteryHarness/releases). The macOS build is **unsigned** (there is no paid Apple developer certificate behind it), so macOS blocks the first launch. Unsigned builds do not update in-app; download the new version instead.
+**Prebuilt installers:** see [Releases](https://github.com/1unarzDev/learn_harness/releases). The macOS build is **unsigned** (there is no paid Apple developer certificate behind it), so macOS blocks the first launch. Unsigned builds do not update in-app; download the new version instead.
 
-**macOS: "MasteryHarness is damaged and can't be opened"?** The app is not damaged. macOS shows this for any unsigned app downloaded from the internet. Drag MasteryHarness from the DMG into Applications, then clear the download quarantine flag in Terminal:
+**macOS: "LearnHarness is damaged and can't be opened"?** The app is not damaged. macOS shows this for any unsigned app downloaded from the internet. Drag LearnHarness from the DMG into Applications, then clear the download quarantine flag in Terminal:
 
 ```bash
-xattr -dr com.apple.quarantine /Applications/MasteryHarness.app
+xattr -dr com.apple.quarantine /Applications/LearnHarness.app
 ```
 
-Then open the app again. Alternatively, open **System Settings → Privacy & Security** and click **Open Anyway** after the first blocked launch. If the DMG itself will not open, run the same command on the downloaded file first, for example `xattr -dr com.apple.quarantine ~/Downloads/MasteryHarness-0.4.0-arm64.dmg`.
+Then open the app again. Alternatively, open **System Settings → Privacy & Security** and click **Open Anyway** after the first blocked launch. If the DMG itself will not open, run the same command on the downloaded file first, for example `xattr -dr com.apple.quarantine ~/Downloads/LearnHarness-0.4.0-arm64.dmg`.
 
 Or build from source:
 
 ```bash
-git clone https://github.com/wangdepin/MasteryHarness.git
-cd MasteryHarness
+git clone https://github.com/1unarzDev/learn_harness.git
+cd learn_harness
 npm install
 npm run dev        # http://localhost:3000
 npm test           # deterministic, no LLM, no network
@@ -101,7 +101,7 @@ Want the official app? Download LearnHarness from [learnharness.ai](https://lear
 
 ## Relationship to upstream
 
-MasteryHarness tracks [LearnHarness](https://github.com/amosblomqvist/learnharness) and last merged upstream 0.3.8. Credit for the original app goes to Amos Blomqvist. Model access is built on [pi-ai](https://github.com/earendil-works/pi).
+LearnHarness tracks [LearnHarness](https://github.com/amosblomqvist/learnharness) and last merged upstream 0.3.8. Credit for the original app goes to Amos Blomqvist. Model access is built on [pi-ai](https://github.com/earendil-works/pi).
 
 ## License
 

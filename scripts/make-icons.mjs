@@ -1,5 +1,5 @@
 // Regenerate the raster icon set from the flat design source
-// (build/icon-flat.svg — the M mark on a rounded squircle with baked
+// (build/icon-flat.svg — the LearnHarness spiral mark on a rounded squircle with baked
 // transparency, owner ruling 2026-10-13; the mark itself was redrawn as
 // vector from the owner's PNG in 2026-10).
 //

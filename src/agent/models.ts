@@ -25,6 +25,7 @@ import { createClaudeCodeProvider } from "./claude-code/provider.ts";
 import { streamClaudeCode } from "./claude-code/stream.ts";
 import { nativeSubscriptionId, nativeSubscriptionModel } from "./subscription-bridge.ts";
 import { nativeSubscriptionStream } from "./subscription-stream.ts";
+import { withServerProviderEndpoint } from "./server-provider-endpoint.ts";
 
 /** App identity is immutable and shared by Models and every native Agent.
  * Agent's default Pi attribution otherwise overrides the Models identity. */
@@ -122,7 +123,10 @@ export function bindCredentialStore(backend: CredentialStore): void {
 export function piModels() {
 	if (!collection) {
 		collection = createModels({ credentials: credentialProxy, identity: APP_IDENTITY });
-		for (const provider of builtinProviders()) {
+		for (const builtin of builtinProviders()) {
+			const endpoint = builtin.id === "anthropic" ? process.env.LH_ANTHROPIC_BASE_URL
+				: builtin.id === "openai" ? process.env.LH_OPENAI_BASE_URL : undefined;
+			const provider = withServerProviderEndpoint(builtin, endpoint);
 			// Keep the native Bedrock implementation reachable by standalone tracing.
 			// Pi's default Node-only loader hides this import from bundlers. Only
 			// replace its lazy forwarding; preserve the native factory's auth/catalog.

@@ -1,0 +1,12 @@
+.git
+node_modules
+.next
+dist
+data
+.env*
+auth.json
+*-credentials.json*
+*.log
+*.tsbuildinfo
+.fresh-data
+.memory
