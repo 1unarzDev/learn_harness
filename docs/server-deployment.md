@@ -36,6 +36,10 @@ The deployment uses these server-only settings for API-key requests:
 | `LH_OPENAI_BASE_URL` | `http://127.0.0.1:2455/v1` (codex-lb Responses API) |
 
 These variables leave native subscription OAuth routing unchanged. The built-in
+OpenAI Responses route explicitly sets `parallel_tool_calls: false` because
+codex-lb's Responses-Lite transport requires sequential tool calls, including
+when the SDK embeds tool definitions in `additional_tools` input items.
+The built-in
 provider catalogs remain available; select models supported by the corresponding
 load balancer. Chromium is installed for browser-backed agent tools.
 
