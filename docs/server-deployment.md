@@ -11,7 +11,8 @@ the owner's two email addresses, with a 30-day application and policy session.
 ssh creation
 cd ~/services/learn-harness
 git pull --ff-only
-docker compose up -d --build
+docker buildx bake -f compose.yml --allow=network.host --load
+docker compose up -d --no-build
 docker compose ps
 ```
 
@@ -19,6 +20,8 @@ The container restarts automatically. Learning data, preferences, and app-manage
 credentials persist in the `learn-harness-state` Docker volume mounted at `/state`.
 Back up that volume before changing stored data or removing the deployment.
 `docker compose down` preserves it; `docker compose down -v` deletes it.
+Builds use host networking to follow the server's Cloudflare WARP DNS and routes.
+The build command explicitly grants Bake's host-network entitlement.
 
 The untracked `.env.server` file (mode 0600) contains `ANTHROPIC_API_KEY` for
 better-ccflare and `OPENAI_API_KEY` for codex-lb. Keys are runtime-only and are
