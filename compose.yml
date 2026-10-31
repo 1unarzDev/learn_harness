@@ -1,6 +1,9 @@
 services:
   learn-harness:
-    build: .
+    build:
+      context: .
+      # Use the server resolver/routes (Cloudflare WARP is active on creation).
+      network: host
     image: learn-harness:local
     container_name: learn-harness
     restart: unless-stopped
